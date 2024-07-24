@@ -4,8 +4,9 @@ import ChatBot from "./components/ChatBot";
 function App() {
   return (
     <div className="App">
-      <h1>프로젝트 생성확인</h1>
-      <ChatBot />
+      <div className="chatbot-overlay">
+        <ChatBot />
+      </div>
     </div>
   );
 }

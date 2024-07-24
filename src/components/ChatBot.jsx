@@ -1,15 +1,15 @@
-// src/components/ChatBot.jsx
 import React, { useState } from "react";
 import axios from "axios";
 import "./ChatBot.css";
-import gptProfile from "../assets/chatProfile.png"; // GPT 프로필 이미지 경로를 알맞게 수정하세요
+import gptProfile from "../assets/chatProfile.png";
 
 const ChatBot = () => {
   const [messages, setMessages] = useState([
     {
       role: "assistant", // 초기 메시지도 assistant 역할로 변경
-      content:
-        "뉴스를 보다가 궁금한 점을 물어보세요!(2023년 10월까지의 데이터 기반 답변입니다)",
+      content: `안녕하세요? 저는 gpt4o-mini 기반 챗봇입니다.
+      뉴스를 보다가 궁금한 점을 물어보세요!
+      (2023년 10월까지의 데이터 기반 답변입니다)`,
     },
   ]);
   const [input, setInput] = useState("");
@@ -82,7 +82,7 @@ const ChatBot = () => {
                 src={gptProfile}
                 alt="GPT Profile"
                 className="profile-image"
-              /> // GPT 프로필 이미지 추가
+              />
             )}
             <div className="message-content">{msg.content}</div>
           </div>
