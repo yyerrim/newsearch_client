@@ -4,6 +4,25 @@ const SearchNews = () => {
     const [search, setSearch] = useState('');
     const [newsList, setNewsList] = useState([]);
 
+    const handleSearch = async () => {
+        if (!search.trim()) {
+            alert('검색어를 입력하세요.');
+            setSearch('');
+            return;
+        } else {
+            const url = `http://localhost:8080/naver/data?search=${search}`;
+            const res = await fetch(url);
+            const data = await res.json();
+            setNewsList(data.items);
+        }
+    };
+
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            handleSearch();
+        }
+    };
+
     return (
         <div>
             <h1>키워드 검색</h1>
@@ -11,19 +30,9 @@ const SearchNews = () => {
                 value={search}
                 onChange={(e) => {
                     setSearch(e.target.value);
-                }} />
-            <button onClick={async () => {
-                if (!search.trim()) {
-                    alert('검색어를 입력하세요.');
-                    setSearch('');
-                    return;
-                } else {
-                    const url = `http://localhost:8080/naver/data?search=${search}`;
-                    const res = await fetch(url);
-                    const data = await res.json();
-                    setNewsList(data.items);
-                }
-            }}>
+                }}
+                onKeyDown={handleKeyDown} />
+            <button onClick={handleSearch}>
                 검색
             </button>
             <h2>검색 결과</h2>
