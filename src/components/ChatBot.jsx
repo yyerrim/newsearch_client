@@ -3,15 +3,7 @@ import axios from "axios";
 import "./ChatBot.css";
 import gptProfile from "../assets/chatProfile.png";
 
-const ChatBot = () => {
-  const [messages, setMessages] = useState([
-    {
-      role: "assistant", // 초기 메시지도 assistant 역할로 변경
-      content: `안녕하세요? 저는 gpt4o-mini 기반 챗봇입니다.
-      뉴스를 보다가 궁금한 점을 물어보세요!
-      (2023년 10월까지의 데이터 기반 답변입니다)`,
-    },
-  ]);
+const ChatBot = ({ messages, setMessages }) => {
   const [input, setInput] = useState("");
 
   const handleInputChange = (e) => {
