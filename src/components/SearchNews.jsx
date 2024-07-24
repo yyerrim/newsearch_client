@@ -13,10 +13,16 @@ const SearchNews = () => {
                     setSearch(e.target.value);
                 }} />
             <button onClick={async () => {
-                const url = `http://localhost:8080/naver/data?search=${search}`;
-                const res = await fetch(url);
-                const data = await res.json();
-                setNewsList(data.items);
+                if (!search.trim()) {
+                    alert('검색어를 입력하세요.');
+                    setSearch('');
+                    return;
+                } else {
+                    const url = `http://localhost:8080/naver/data?search=${search}`;
+                    const res = await fetch(url);
+                    const data = await res.json();
+                    setNewsList(data.items);
+                }
             }}>
                 검색
             </button>
