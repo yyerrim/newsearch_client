@@ -1,9 +1,15 @@
 import './App.css';
 
+import Categories from './components/Categories';
+import MainNews from './components/MainNews';
+import SearchNews from './components/SearchNews';
+
 function App() {
   return (
     <div className="App">
-      {/* branch test */}
+      <Categories />
+      <MainNews />
+      <SearchNews />
     </div>
   );
 }
