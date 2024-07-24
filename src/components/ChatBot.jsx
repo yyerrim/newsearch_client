@@ -2,10 +2,15 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./ChatBot.css";
+import gptProfile from "../assets/chatProfile.png"; // GPT 프로필 이미지 경로를 알맞게 수정하세요
 
 const ChatBot = () => {
   const [messages, setMessages] = useState([
-    { role: "system", content: "You are a helpful assistant." },
+    {
+      role: "assistant", // 초기 메시지도 assistant 역할로 변경
+      content:
+        "뉴스를 보다가 궁금한 점을 물어보세요!(2023년 10월까지의 데이터 기반 답변입니다)",
+    },
   ]);
   const [input, setInput] = useState("");
 
@@ -14,6 +19,7 @@ const ChatBot = () => {
   };
 
   const handleSendMessage = async () => {
+    if (input.trim() === "") return; // 입력이 비어있으면 전송하지 않음
     const userMessage = { role: "user", content: input };
     setMessages([...messages, userMessage]);
 
@@ -55,6 +61,12 @@ const ChatBot = () => {
     }
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleSendMessage();
+    }
+  };
+
   return (
     <div className="chat-container">
       <div className="messages">
@@ -65,13 +77,25 @@ const ChatBot = () => {
               msg.role === "user" ? "user-message" : "bot-message"
             }`}
           >
-            {msg.content}
+            {msg.role === "assistant" && (
+              <img
+                src={gptProfile}
+                alt="GPT Profile"
+                className="profile-image"
+              /> // GPT 프로필 이미지 추가
+            )}
+            <div className="message-content">{msg.content}</div>
           </div>
         ))}
       </div>
-      <div style={{ display: "flex" }}>
-        <input type="text" value={input} onChange={handleInputChange} />
-        <button onClick={handleSendMessage}>Send</button>
+      <div className="input-container">
+        <input
+          type="text"
+          value={input}
+          onChange={handleInputChange}
+          onKeyPress={handleKeyPress}
+        />
+        <button onClick={handleSendMessage} className="send-button"></button>
       </div>
     </div>
   );

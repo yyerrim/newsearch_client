@@ -2,85 +2,74 @@
 .chat-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: 20px;
+  height: 100%;
 }
 
 .messages {
-  width: 100%;
-  max-width: 600px;
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
 }
 
 .message {
   display: flex;
-  margin: 10px 0;
+  align-items: flex-start;
+  margin: 5px 0;
 }
 
 .user-message {
-  background-color: #daf8da;
-  padding: 10px;
-  border-radius: 15px;
-  margin: 5px 0;
-  align-self: flex-end;
-  max-width: 70%;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-  position: relative;
-}
-
-.user-message::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: -10px;
-  width: 0;
-  height: 0;
-  border: 10px solid transparent;
-  border-left-color: #daf8da;
-  border-right: 0;
-  margin-top: -10px;
+  justify-content: flex-end;
 }
 
 .bot-message {
+  justify-content: flex-start;
+}
+
+.profile-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.message-content {
   background-color: #f0f0f0;
   padding: 10px;
   border-radius: 15px;
-  margin: 5px 0;
-  align-self: flex-start;
   max-width: 70%;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-  position: relative;
 }
 
-.bot-message::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: -10px;
-  width: 0;
-  height: 0;
-  border: 10px solid transparent;
-  border-right-color: #f0f0f0;
-  border-left: 0;
-  margin-top: -10px;
+.user-message .message-content {
+  background-color: #daf8da;
+  align-self: flex-end;
+}
+
+.bot-message .message-content {
+  align-self: flex-start;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-top: 1px solid #ccc;
 }
 
 input {
-  width: calc(100% - 80px);
+  flex-grow: 1;
   padding: 10px;
-  margin: 10px 0;
+  margin-right: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
 }
 
-button {
-  padding: 10px;
-  border-radius: 5px;
+button.send-button {
+  background: url("../assets/message-sendIcon.png") no-repeat center center;
+  background-size: contain;
+  width: 40px; /* 이미지의 너비에 맞게 설정 */
+  height: 40px; /* 이미지의 높이에 맞게 설정 */
   border: none;
-  background-color: #007bff;
-  color: white;
   cursor: pointer;
-  margin-left: 10px;
 }
