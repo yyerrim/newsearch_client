@@ -1,40 +1,25 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 const SearchNews = () => {
-    const search = useRef();
+    const [search, setSearch] = useState('');
     const [newsList, setNewsList] = useState([]);
-
-    const getNews = async (query) => {
-        // const url = `https://openapi.naver.com/v1/search/news?query=${encodeURIComponent(query)}&display=20`;
-        const url = `http://localhost:8080/naver/data`;
-        const options = {
-            method: 'GET',
-            headers: {
-                'X-Naver-Client-Id': 'IvgTQdgxlCWCOq3mEuAn',
-                'X-Naver-Client-Secret': 'rgmMSy8YCx'
-            }
-        };
-        const res = await fetch(url, options);
-        const data = await res.json();
-        return data;
-    };
-
-    const handleClick = async () => {
-        const query = search.current.value;
-        if (query) {
-            const data = await getNews(query);
-            setNewsList(data.items);
-        } else {
-            alert("검색어를 입력하세요.");
-        }
-    };
 
     return (
         <div>
             <h1>키워드 검색</h1>
             <input type="text" placeholder="news 키워드를 입력하세요."
-                ref={search} />
-            <button onClick={handleClick}>검색</button>
+                value={search}
+                onChange={(e) => {
+                    setSearch(e.target.value);
+                }} />
+            <button onClick={async () => {
+                const url = `http://localhost:8080/naver/data?search=${search}`;
+                const res = await fetch(url);
+                const data = await res.json();
+                setNewsList(data.items);
+            }}>
+                검색
+            </button>
             <h2>검색 결과</h2>
             {
                 newsList.map((v, i) => {
