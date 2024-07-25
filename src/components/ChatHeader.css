@@ -1,0 +1,39 @@
+.chat-header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  background-color: #f0f0f0;
+}
+
+.profile-header-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.header-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-name {
+  font-weight: bold;
+}
+
+.header-status-container {
+  display: flex;
+  align-items: center;
+}
+
+.header-status {
+  font-size: 0.8rem;
+  color: #888;
+  margin-left: 2px; /* 상태 이미지와 텍스트 사이의 간격 */
+}
+
+.status-image {
+  width: 12px; /* 이미지의 너비를 텍스트 크기와 맞추기 */
+  height: 12px; /* 이미지의 높이를 텍스트 크기와 맞추기 */
+}

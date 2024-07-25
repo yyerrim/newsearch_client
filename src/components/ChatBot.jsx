@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import "./ChatBot.css";
+import ChatHeader from "./ChatHeader";
 import gptProfile from "../assets/chatProfile.png";
+import sendIcon from "../assets/message-sendIcnBlue.png"; // 전송 아이콘 이미지 경로를 알맞게 수정하세요
 
 const ChatBot = ({ messages, setMessages }) => {
   const [input, setInput] = useState("");
@@ -15,8 +17,8 @@ const ChatBot = ({ messages, setMessages }) => {
     if (input.trim() === "") {
       Swal.fire({
         icon: "warning",
-        title: "내용을 입력해주세요",
-        text: "질문 내용을 입력한 후 전송해주세요.",
+        title: "질문을 입력해주세요.",
+        // text: "질문 내용을 입력한 후 전송해주세요.",
       });
       return; // 입력이 비어있으면 전송하지 않음
     }
@@ -69,6 +71,7 @@ const ChatBot = ({ messages, setMessages }) => {
 
   return (
     <div className="chat-container">
+      <ChatHeader />
       <div className="messages">
         {messages.map((msg, index) => (
           <div
@@ -94,8 +97,14 @@ const ChatBot = ({ messages, setMessages }) => {
           value={input}
           onChange={handleInputChange}
           onKeyPress={handleKeyPress}
+          className="chat-input"
+          placeholder="질문을 입력하세요"
         />
-        <button onClick={handleSendMessage} className="send-button"></button>
+        {input.trim() !== "" && (
+          <button onClick={handleSendMessage} className="send-button">
+            <img src={sendIcon} alt="Send" />
+          </button>
+        )}
       </div>
     </div>
   );
