@@ -23,13 +23,19 @@ const MainNews = ({ category }) => {
                     return (
                         <div key={i}>
                             <a href={v.url}><h3>{v.title}</h3></a>
-                            <p>{v.description}</p>
-                            <img src={v.urlToImage} style={
-                                {
-                                    width: '160px',
-                                    height: '100px',
+                            <div className="content"
+                                style={{ display: 'flex' }}>
+                                {v.urlToImage &&
+                                    <img src={v.urlToImage} style={
+                                        {
+                                            width: '160px',
+                                            height: '100px',
+                                        }
+                                    } />
                                 }
-                            }></img>
+                                {v.description && <p>{v.description}</p>}
+                            </div>
+
                         </div>
                     )
                 })
