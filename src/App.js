@@ -10,8 +10,10 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 function App() {
   const [category, setCategory] = useState('all');
   const [newsList, setNewsList] = useState([]);
+  const [search, setSearch] = useState('');
 
   const fetchNews = async (search) => {
+    setSearch(search);
     const url = `http://localhost:8080/naver/data?search=${search}`;
     const res = await fetch(url);
     const data = await res.json();
@@ -33,7 +35,7 @@ function App() {
         </div>
         <Routes>
           <Route path="/" element={<MainNews category={category} />} />
-          <Route path="/search" element={<SearchNews newsList={newsList} />} />
+          <Route path="/search" element={<SearchNews newsList={newsList} search={search} />} />
         </Routes>
       </div>
     </BrowserRouter>

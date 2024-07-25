@@ -1,6 +1,7 @@
-const SearchNews = ({ newsList }) => {
+const SearchNews = ({ newsList, search }) => {
     return (
         <div>
+            <h2>"{search}"로 검색한 결과입니다.</h2>
             {
                 newsList.map((v, i) => {
                     return (
