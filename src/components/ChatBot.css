@@ -3,6 +3,13 @@
   flex-direction: column;
   height: 100%;
   width: 100%;
+  max-width: 33.33vw; /* 핸드폰 화면의 최대 너비 설정 */
+  margin: 0 auto; /* 가운데 정렬 */
+  border: 1px solid #ccc; /* 테두리 추가 */
+  border-radius: 20px; /* 모서리 둥글게 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+  overflow: hidden; /* 내용이 넘칠 경우 숨기기 */
+  padding: 0; /* 패딩 제거 */
 }
 
 .messages {
@@ -20,12 +27,13 @@
 
 .user-message {
   justify-content: flex-end;
-  text-align: left; /* 봇 메시지도 좌측 정렬 */
+  margin: 10px;
+  text-align: left;
 }
 
 .bot-message {
   justify-content: flex-start;
-  text-align: left; /* 봇 메시지도 좌측 정렬 */
+  text-align: left;
 }
 
 .profile-image {
@@ -41,7 +49,8 @@
   border-radius: 15px;
   max-width: 70%;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-  white-space: pre-wrap; /* 초기 메시지 줄바꿈을 유지 하는 코드*/
+  white-space: pre-wrap; /* 줄바꿈을 유지 */
+  text-align: left; /* 텍스트를 좌측 정렬 */
 }
 
 .user-message .message-content {
