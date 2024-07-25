@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Categories from './Categories';
 
 const MainNews = ({ category }) => {
     const [data, setData] = useState([]);
@@ -17,7 +16,7 @@ const MainNews = ({ category }) => {
     }, [category]);
 
     return (
-        <div>
+        <div style={{ height: '100%', overflowY: 'scroll' }}>
             {
                 data.map((v, i) => {
                     return (
