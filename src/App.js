@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 
 import Categories from './components/Categories';
+import Search from './components/Search';
 import MainNews from './components/MainNews';
 import SearchNews from './components/SearchNews';
 
@@ -11,6 +12,7 @@ function App() {
   return (
     <div className="App">
       <Categories onCategoryChange={setCategory} />
+      {/* <Search /> */}
       <MainNews category={category} />
       <SearchNews />
     </div>

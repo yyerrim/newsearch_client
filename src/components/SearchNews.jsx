@@ -1,40 +1,19 @@
 import { useState } from "react";
+import Search from "./Search";
 
 const SearchNews = () => {
-    const [search, setSearch] = useState('');
     const [newsList, setNewsList] = useState([]);
 
-    const handleSearch = async () => {
-        if (!search.trim()) {
-            alert('검색어를 입력하세요.');
-            setSearch('');
-            return;
-        } else {
-            const url = `http://localhost:8080/naver/data?search=${search}`;
-            const res = await fetch(url);
-            const data = await res.json();
-            setNewsList(data.items);
-        }
-    };
-
-    const handleKeyDown = (e) => {
-        if (e.key === 'Enter') {
-            handleSearch();
-        }
+    const fetchNews = async (search) => {
+        const url = `http://localhost:8080/naver/data?search=${search}`;
+        const res = await fetch(url);
+        const data = await res.json();
+        setNewsList(data.items);
     };
 
     return (
         <div>
-            <h1>키워드 검색</h1>
-            <input type="text" placeholder="news 키워드를 입력하세요."
-                value={search}
-                onChange={(e) => {
-                    setSearch(e.target.value);
-                }}
-                onKeyDown={handleKeyDown} />
-            <button onClick={handleSearch}>
-                검색
-            </button>
+            <Search onSearch={fetchNews} />
             <h2>검색 결과</h2>
             {
                 newsList.map((v, i) => {
