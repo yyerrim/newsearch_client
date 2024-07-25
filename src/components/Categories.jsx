@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const Categories = ({ onCategoryChange }) => {
-    const [category, setCategory] = useState('');
+    const [category, setCategory] = useState('all');
 
     const buttonClick = (e) => {
         const value = e.target.value;

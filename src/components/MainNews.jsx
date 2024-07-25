@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import Categories from './Categories';
 
-const MainNews = () => {
+const MainNews = ({ category }) => {
     const [data, setData] = useState([]);
-    const [category, setCategory] = useState('all');
 
     useEffect(() => {
         const getNews = async () => {
@@ -19,7 +18,6 @@ const MainNews = () => {
 
     return (
         <div>
-            <Categories onCategoryChange={setCategory} />
             {
                 data.map((v, i) => {
                     return (
