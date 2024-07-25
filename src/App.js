@@ -5,6 +5,7 @@ import Categories from './components/Categories';
 import Search from './components/Search';
 import MainNews from './components/MainNews';
 import SearchNews from './components/SearchNews';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
   const [category, setCategory] = useState('all');
@@ -18,12 +19,24 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Categories onCategoryChange={setCategory} />
-      <Search onSearch={fetchNews} />
-      <MainNews category={category} />
-      <SearchNews newsList={newsList} />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <div className='menu'
+          style={
+            {
+              display: 'flex',
+              justifyContent: 'space-between'
+            }
+          }>
+          <Categories onCategoryChange={setCategory} />
+          <Search onSearch={fetchNews} />
+        </div>
+        <Routes>
+          <Route path="/" element={<MainNews category={category} />} />
+          <Route path="/search" element={<SearchNews newsList={newsList} />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

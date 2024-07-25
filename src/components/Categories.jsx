@@ -1,12 +1,15 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Categories = ({ onCategoryChange }) => {
     const [category, setCategory] = useState('all');
+    const navigate = useNavigate();
 
     const buttonClick = (e) => {
         const value = e.target.value;
         setCategory(value);
         onCategoryChange(value);
+        navigate('/');
     };
 
     return (

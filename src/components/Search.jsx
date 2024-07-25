@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Search = ({ onSearch }) => {
     const [search, setSearch] = useState('');
+    const navigate = useNavigate();
 
     const handleSearch = () => {
         if (!search.trim()) {
@@ -10,6 +12,7 @@ const Search = ({ onSearch }) => {
             return;
         }
         onSearch(search);
+        navigate(`/search`);
     };
 
     const handleKeyDown = (e) => {
