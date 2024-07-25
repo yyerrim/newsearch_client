@@ -7,7 +7,6 @@ import SearchNews from './components/SearchNews';
 function App() {
   return (
     <div className="App">
-      <Categories />
       <MainNews />
       <SearchNews />
     </div>

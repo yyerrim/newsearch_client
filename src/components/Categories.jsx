@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-const Categories = () => {
+const Categories = ({ onCategoryChange }) => {
     const [category, setCategory] = useState('');
 
     const buttonClick = (e) => {
         const value = e.target.value;
         setCategory(value);
-        console.log(value);
+        onCategoryChange(value);
     };
 
     return (
