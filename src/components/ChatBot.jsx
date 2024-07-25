@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 import "./ChatBot.css";
 import gptProfile from "../assets/chatProfile.png";
 
@@ -11,7 +12,14 @@ const ChatBot = ({ messages, setMessages }) => {
   };
 
   const handleSendMessage = async () => {
-    if (input.trim() === "") return; // 입력이 비어있으면 전송하지 않음
+    if (input.trim() === "") {
+      Swal.fire({
+        icon: "warning",
+        title: "내용을 입력해주세요",
+        text: "질문 내용을 입력한 후 전송해주세요.",
+      });
+      return; // 입력이 비어있으면 전송하지 않음
+    }
     const userMessage = { role: "user", content: input };
     setMessages([...messages, userMessage]);
 
