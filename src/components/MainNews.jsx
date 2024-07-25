@@ -5,8 +5,9 @@ const MainNews = () => {
 
     useEffect(() => {
         const getNews = async () => {
-            const category = `&category=entertainment`;
-            const url = `https://newsapi.org/v2/top-headlines?country=kr${category}&apiKey=3edbe8fb44eb4142988957f180c08ef1`;
+            const category = `&category=health`;
+            const apiKey = process.env.REACT_APP_NEWS_API_KEY;
+            const url = `https://newsapi.org/v2/top-headlines?country=kr${category}&apiKey=${apiKey}`;
             const res = await fetch(url);
             const datas = await res.json();
             setData(datas.articles);
