@@ -20,6 +20,7 @@
 
 .user-message {
   justify-content: flex-end;
+  text-align: left; /* 봇 메시지도 좌측 정렬 */
 }
 
 .bot-message {
