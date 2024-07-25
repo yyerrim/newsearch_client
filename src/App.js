@@ -8,13 +8,21 @@ import SearchNews from './components/SearchNews';
 
 function App() {
   const [category, setCategory] = useState('all');
+  const [newsList, setNewsList] = useState([]);
+
+  const fetchNews = async (search) => {
+    const url = `http://localhost:8080/naver/data?search=${search}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    setNewsList(data.items);
+  };
 
   return (
     <div className="App">
       <Categories onCategoryChange={setCategory} />
-      {/* <Search /> */}
+      <Search onSearch={fetchNews} />
       <MainNews category={category} />
-      <SearchNews />
+      <SearchNews newsList={newsList} />
     </div>
   );
 }

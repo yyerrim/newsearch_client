@@ -1,20 +1,6 @@
-import { useState } from "react";
-import Search from "./Search";
-
-const SearchNews = () => {
-    const [newsList, setNewsList] = useState([]);
-
-    const fetchNews = async (search) => {
-        const url = `http://localhost:8080/naver/data?search=${search}`;
-        const res = await fetch(url);
-        const data = await res.json();
-        setNewsList(data.items);
-    };
-
+const SearchNews = ({ newsList }) => {
     return (
         <div>
-            <Search onSearch={fetchNews} />
-            <h2>검색 결과</h2>
             {
                 newsList.map((v, i) => {
                     return (
