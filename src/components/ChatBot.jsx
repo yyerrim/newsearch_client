@@ -4,12 +4,12 @@ import Swal from "sweetalert2";
 import "./ChatBot.css";
 import ChatHeader from "./ChatHeader";
 import gptProfile from "../assets/chatProfile.png";
-import sendIcon from "../assets/message-sendIcnBlue.png"; // 전송 아이콘 이미지 경로를 알맞게 수정하세요
+import sendIcon from "../assets/message-sendIcnBlue.png";
 
 const ChatBot = ({ messages, setMessages }) => {
   const [input, setInput] = useState("");
   const [isBotTyping, setIsBotTyping] = useState(false); // 챗봇 입력 중 상태 추가
-  const messagesEndRef = useRef(null); // 스크롤을 제어하기 위한 ref 추가
+  const messagesEndRef = useRef(null); // 스크롤 ref
 
   const handleInputChange = (e) => {
     setInput(e.target.value);
@@ -20,7 +20,6 @@ const ChatBot = ({ messages, setMessages }) => {
       Swal.fire({
         icon: "warning",
         title: "질문을 입력해주세요.",
-        // text: "질문 내용을 입력한 후 전송해주세요.",
       });
       return; // 입력이 비어있으면 전송하지 않음
     }
@@ -108,7 +107,7 @@ const ChatBot = ({ messages, setMessages }) => {
           <div className="message bot-message">
             <img src={gptProfile} alt="GPT Profile" className="profile-image" />
             <div className="message-content typing-indicator">
-              챗봇이 입력 중입니다...
+              답변을 입력 중입니다...
             </div>
           </div>
         )}
