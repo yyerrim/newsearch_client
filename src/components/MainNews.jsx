@@ -21,7 +21,7 @@ const MainNews = ({ category }) => {
       {data.map((v, i) => {
         return (
           <div key={i}>
-            <a href={v.url}>
+            <a href={v.url} target="_blank">
               <h3>{v.title}</h3>
             </a>
             <div className="content" style={{ display: "flex" }}>
