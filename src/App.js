@@ -18,10 +18,6 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>newSearch</h1>
-      </header>
-
       {/* 버튼에 active 클래스 조건부 적용 */}
       <button
         className={`chatbot-button ${showChatBot ? "active" : ""}`}
