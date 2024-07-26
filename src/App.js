@@ -7,6 +7,7 @@ import Categories from "./components/Categories";
 import Search from "./components/Search";
 import MainNews from "./components/MainNews";
 import SearchNews from "./components/SearchNews";
+import NewsPage from "./components/NewsPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -122,6 +123,7 @@ function App() {
                   path="/search"
                   element={<SearchNews newsList={newsList} search={search} />}
                 />
+                <Route path="/news" element={<NewsPage />} />
               </Routes>
             </div>
           </div>
