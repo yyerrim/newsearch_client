@@ -20,14 +20,6 @@
   background-color: #f0f0f0;
 }
 
-.back-button {
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  margin-right: 10px;
-}
-
 .profile-header-image {
   width: 40px;
   height: 40px;
@@ -58,7 +50,7 @@
 .message {
   display: flex;
   align-items: flex-start;
-  margin: 5px 0;
+  /* margin: 5px 0; */
 }
 
 .user-message {

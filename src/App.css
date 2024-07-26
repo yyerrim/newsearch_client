@@ -1,8 +1,8 @@
 /* 버튼을 이미지로 바꾸고 더 작게 만들기 */
 .chatbot-button {
   position: fixed;
-  bottom: 1%; /* 화면 아래에서의 간격을 상대적인 단위로 설정 */
-  right: 1%; /* 화면 오른쪽에서의 간격을 상대적인 단위로 설정 */
+  bottom: 1%;
+  right: 1%;
   background-color: transparent; /* 배경색을 투명으로 설정 */
   border: none;
   border-radius: 50%;
@@ -27,9 +27,9 @@
 }
 
 .chatbot-overlay {
-  position: fixed;
+  /* position: fixed;
   bottom: 7vh;
-  right: 1%;
+  right: 1%; */
   width: 30vw; /* 화면 가로의 1/3 */
   border-radius: 20px; /* 모서리 둥글게 */
   height: 82vh; /* 화면 세로의 82% */

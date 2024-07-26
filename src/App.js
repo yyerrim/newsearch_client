@@ -59,8 +59,7 @@ function App() {
               className="article"
               style={{
                 width: "100%",
-                height: "90%",
-                backgroundColor: "lightskyblue",
+                height: "90%"
               }}
             >
               <Routes>
@@ -77,9 +76,14 @@ function App() {
             style={{
               width: "30vw",
               height: "100%",
-              backgroundColor: "lightgreen",
             }}
           >
+            {showChatBot && (
+              <div className="chatbot-overlay" style={{height: '89%'}}>
+                <ChatBot messages={messages} setMessages={setMessages} />
+              </div>
+            )}
+            <div style={{height: '11%'}}>
             {/* 버튼에 active 클래스 조건부 적용 */}
             <button
               className={`chatbot-button ${showChatBot ? "active" : ""}`}
@@ -87,12 +91,7 @@ function App() {
             >
               <img src={chatIcon} alt="Chat" className="chat-icon" />
             </button>
-
-            {showChatBot && (
-              <div className="chatbot-overlay">
-                <ChatBot messages={messages} setMessages={setMessages} />
-              </div>
-            )}
+            </div>
           </div>
         </div>
       </div>
