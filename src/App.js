@@ -57,8 +57,8 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <div className='header' style={{ height: '20vh', backgroundColor: '#000060' }}></div>
-        <div className="container" style={{ height: '80vh', display: 'flex' }}>
+        <div className='header' style={{ height: '15vh', backgroundColor: '#000060' }}></div>
+        <div className="container" style={{ height: '85vh', display: 'flex' }}>
           <div className='news' style={{ width: '70vw', height: '100%' }}>
             <div className='menu' style={
               {
