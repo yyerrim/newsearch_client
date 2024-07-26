@@ -7,6 +7,7 @@ import Categories from "./components/Categories";
 import Search from "./components/Search";
 import MainNews from "./components/MainNews";
 import SearchNews from "./components/SearchNews";
+import NewsPage from "./components/NewsPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -68,6 +69,7 @@ function App() {
                   path="/search"
                   element={<SearchNews newsList={newsList} search={search} />}
                 />
+                <Route path="/news" element={<NewsPage />} />
               </Routes>
             </div>
           </div>
@@ -79,18 +81,18 @@ function App() {
             }}
           >
             {showChatBot && (
-              <div className="chatbot-overlay" style={{height: '89%'}}>
+              <div className="chatbot-overlay" style={{ height: '89%' }}>
                 <ChatBot messages={messages} setMessages={setMessages} />
               </div>
             )}
-            <div style={{height: '11%'}}>
-            {/* 버튼에 active 클래스 조건부 적용 */}
-            <button
-              className={`chatbot-button ${showChatBot ? "active" : ""}`}
-              onClick={handleButtonClick}
-            >
-              <img src={chatIcon} alt="Chat" className="chat-icon" />
-            </button>
+            <div style={{ height: '11%' }}>
+              {/* 버튼에 active 클래스 조건부 적용 */}
+              <button
+                className={`chatbot-button ${showChatBot ? "active" : ""}`}
+                onClick={handleButtonClick}
+              >
+                <img src={chatIcon} alt="Chat" className="chat-icon" />
+              </button>
             </div>
           </div>
         </div>
