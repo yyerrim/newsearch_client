@@ -42,7 +42,7 @@ function App() {
         <div
           className="header"
           style={{
-            height: "15vh",
+            height: "12vh",
             backgroundColor: "#000060",
             color: "white",
             padding: "10px",
