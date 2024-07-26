@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import "./ChatBot.css";
@@ -8,6 +8,8 @@ import sendIcon from "../assets/message-sendIcnBlue.png"; // 전송 아이콘 �
 
 const ChatBot = ({ messages, setMessages }) => {
   const [input, setInput] = useState("");
+  const [isBotTyping, setIsBotTyping] = useState(false); // 챗봇 입력 중 상태 추가
+  const messagesEndRef = useRef(null); // 스크롤을 제어하기 위한 ref 추가
 
   const handleInputChange = (e) => {
     setInput(e.target.value);
@@ -25,11 +27,15 @@ const ChatBot = ({ messages, setMessages }) => {
     const userMessage = { role: "user", content: input };
     setMessages([...messages, userMessage]);
 
-    const response = await getChatbotResponse([...messages, userMessage]);
-    const botMessage = { role: "assistant", content: response };
-    setMessages([...messages, userMessage, botMessage]);
-
     setInput("");
+    setIsBotTyping(true); // 챗봇이 입력 중임을 표시
+
+    const response = await getChatbotResponse([...messages, userMessage]);
+    setMessages((prevMessages) => [
+      ...prevMessages,
+      { role: "assistant", content: response },
+    ]);
+    setIsBotTyping(false); // 챗봇이 입력 완료되었음을 표시
   };
 
   const getChatbotResponse = async (messageHistory) => {
@@ -69,6 +75,14 @@ const ChatBot = ({ messages, setMessages }) => {
     }
   };
 
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
+
   return (
     <div className="chat-container">
       <ChatHeader />
@@ -90,6 +104,15 @@ const ChatBot = ({ messages, setMessages }) => {
             <div className="message-content">{msg.content}</div>
           </div>
         ))}
+        {isBotTyping && (
+          <div className="message bot-message">
+            <img src={gptProfile} alt="GPT Profile" className="profile-image" />
+            <div className="message-content typing-indicator">
+              챗봇이 입력 중입니다...
+            </div>
+          </div>
+        )}
+        <div ref={messagesEndRef} />
       </div>
       <div className="input-container">
         <input
