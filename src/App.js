@@ -84,7 +84,7 @@ function App() {
         <div
           className="header"
           style={{
-            height: "15vh",
+            height: "12vh",
             backgroundColor: "#000060",
             color: "white",
             padding: "10px",
@@ -94,7 +94,7 @@ function App() {
           <div>Total Visitors: {totalVisitors}</div>
         </div>
 
-        <div className="container" style={{ height: "85vh", display: "flex" }}>
+        <div className="container" style={{ height: "88vh", display: "flex" }}>
           <div className="news" style={{ width: "70vw", height: "100%" }}>
             <div
               className="menu"
