@@ -1,0 +1,19 @@
+.menu_search {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-right: 1vw;
+}
+
+.keyword {
+    width: 12vw;
+    height: 3vh;
+    padding-left: 0.4vw;
+}
+
+.search_button {
+    width: 2.5vw;
+    height: 3.7vh;
+    font-size: 1.5vmin;
+    cursor: pointer;
+}

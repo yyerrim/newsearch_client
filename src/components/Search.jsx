@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./Search.css";
 
 const Search = ({ onSearch }) => {
   const [search, setSearch] = useState("");
@@ -23,15 +24,16 @@ const Search = ({ onSearch }) => {
   };
 
   return (
-    <div>
+    <div className="menu_search">
       <input
+        className="keyword"
         type="text"
         placeholder="news 키워드를 입력하세요."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         onKeyDown={handleKeyDown}
       />
-      <button onClick={handleSearch}>검색</button>
+      <button className="search_button" onClick={handleSearch}>🔍</button>
     </div>
   );
 };

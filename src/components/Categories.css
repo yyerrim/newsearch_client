@@ -1,0 +1,13 @@
+.menu_categories {
+    display: flex;
+    justify-content: start;
+    margin-left: 1vw;
+}
+
+.menu_categories>button {
+    font-size: 2vmin;
+    border: transparent;
+    background-color: transparent;
+    margin-right: 1vw;
+    cursor: pointer;
+}

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./Categories.css";
 
 const Categories = ({ onCategoryChange }) => {
     const [category, setCategory] = useState('all');
@@ -13,21 +14,14 @@ const Categories = ({ onCategoryChange }) => {
     };
 
     return (
-        <div>
-            <input type="button" value="all"
-                onClick={buttonClick} />
-            <input type="button" value="business"
-                onClick={buttonClick} />
-            <input type="button" value="entertainment"
-                onClick={buttonClick} />
-            <input type="button" value="health"
-                onClick={buttonClick} />
-            <input type="button" value="science"
-                onClick={buttonClick} />
-            <input type="button" value="sports"
-                onClick={buttonClick} />
-            <input type="button" value="technology"
-                onClick={buttonClick} />
+        <div className="menu_categories">
+            <button value='all' onClick={buttonClick}>all</button>
+            <button value='business' onClick={buttonClick}>business</button>
+            <button value='entertainment' onClick={buttonClick}>entertainment</button>
+            <button value='health' onClick={buttonClick}>health</button>
+            <button value='science' onClick={buttonClick}>science</button>
+            <button value='sports' onClick={buttonClick}>sports</button>
+            <button value='technology' onClick={buttonClick}>technology</button>
         </div>
     );
 };
