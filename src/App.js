@@ -40,7 +40,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <div className="header">
-          <h1>NewSearch</h1>
+          <span>NewSearch</span>
           <VisitorCounter />
         </div>
         <div className="container">
