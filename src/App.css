@@ -1,3 +1,59 @@
+.header {
+  height: 12vh;
+  background-color: #000060;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 1.5vw;
+  padding-right: 1.5vw;
+}
+
+.container {
+  height: 88vh;
+  display: flex;
+}
+
+.news {
+  width: 70vw;
+  height: 100%;
+}
+
+.menu {
+  width: 100%;
+  height: 7%;
+  background-color: lightseagreen;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.article {
+  width: 100%;
+  height: 93%;
+}
+
+.chat {
+  width: 30vw;
+  height: 100%;
+}
+
+.chatbot-overlay {
+  width: 100%;
+  height: 89%;
+  border-radius: 20px; /* 모서리 둥글게 */
+  background-color: white;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.divbutton {
+  width: 100%;
+  height: 11%;
+  display: flex;
+  justify-content: end;
+}
+
 /* 버튼을 이미지로 바꾸고 더 작게 만들기 */
 .chatbot-button {
   position: fixed;
@@ -24,22 +80,4 @@
   height: 100%; /* 버튼 크기 맞추기 */
   max-width: 2vw;
   max-height: 2vw;
-}
-
-.chatbot-overlay {
-  /* position: fixed;
-  bottom: 7vh;
-  right: 1%; */
-  width: 30vw; /* 화면 가로의 1/3 */
-  border-radius: 20px; /* 모서리 둥글게 */
-  height: 82vh; /* 화면 세로의 82% */
-  background-color: white;
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* 가운데 정렬 */
-  justify-content: center; /* 가운데 정렬 */
-  padding: 0; /* 패딩 제거 */
-  margin: 0; /* 마진 제거 */
 }

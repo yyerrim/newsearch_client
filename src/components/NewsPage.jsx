@@ -15,13 +15,13 @@ const NewsPage = () => {
     }
 
     return (
-        <div style={{ height: '100%', overflowY: 'scroll' }}>
-            <button onClick={handleBack} style={{ margin: '10px', padding: '10px' }}>
+        <div style={{ height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'end' }}>
+            <button onClick={handleBack} style={{ width: '20%', height: '5%' }}>
                 Back
             </button>
             <iframe
                 src={url}
-                style={{ width: '100%', height: '100%', border: 'none' }}
+                style={{ width: '100%', height: '95%', border: 'none' }}
                 title="News Article"
             />
         </div>

@@ -39,42 +39,17 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <div
-          className="header"
-          style={{
-            height: "12vh",
-            backgroundColor: "#000060",
-            color: "white",
-            padding: "10px",
-          }}
-        >
-          <VisitorCounter />
+        <div className="header">
           <h1>NewSearch</h1>
+          <VisitorCounter />
         </div>
-
-        <div className="container" style={{ height: "88vh", display: "flex" }}>
-          <div className="news" style={{ width: "70vw", height: "100%" }}>
-            <div
-              className="menu"
-              style={{
-                width: "100%",
-                height: "10%",
-                backgroundColor: "lightseagreen",
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-              }}
-            >
+        <div className="container">
+          <div className="news">
+            <div className="menu">
               <Categories onCategoryChange={setCategory} />
               <Search onSearch={fetchNews} />
             </div>
-            <div
-              className="article"
-              style={{
-                width: "100%",
-                height: "90%",
-              }}
-            >
+            <div className="article">
               <Routes>
                 <Route path="/" element={<MainNews category={category} />} />
                 <Route
@@ -85,13 +60,13 @@ function App() {
               </Routes>
             </div>
           </div>
-          <div className="chat" style={{ width: "30vw", height: "100%" }}>
+          <div className="chat">
             {showChatBot && (
-              <div className="chatbot-overlay" style={{ height: "89%" }}>
+              <div className="chatbot-overlay">
                 <ChatBot messages={messages} setMessages={setMessages} />
               </div>
             )}
-            <div style={{ height: "11%" }}>
+            <div className="divbutton">
               {/* 버튼에 active 클래스 조건부 적용 */}
               <button
                 className={`chatbot-button ${showChatBot ? "active" : ""}`}
