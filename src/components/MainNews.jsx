@@ -8,7 +8,7 @@ const MainNews = ({ category }) => {
       const cate = category === "all" ? "" : `&category=${category}`;
       const apiKey = process.env.REACT_APP_NEWS_API_KEY;
       // const url = `https://newsapi.org/v2/top-headlines?country=kr${cate}&apiKey=&{apiKey}`;
-      const url = `https://newsapi.org/v2/top-headlines?country=kr${cate}&apiKey=3edbe8fb44eb4142988957f180c08ef1`;
+      const url = `https://newsapi.org/v2/top-headlines?country=kr${cate}&apiKey=4d04ef5559d647efa5e26f934f7db879`;
       const res = await fetch(url);
       const datas = await res.json();
       setData(datas.articles);

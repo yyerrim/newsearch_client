@@ -55,7 +55,7 @@ function App() {
         <div className="container" style={{ height: "88vh", display: "flex" }}>
           <div className="news" style={{ width: "70vw", height: "100%" }}>
             <div
-              className="menu"
+              className="menu" 
               style={{
                 width: "100%",
                 height: "10%",
