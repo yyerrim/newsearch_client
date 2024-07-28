@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import "./NewsPage.css";
 
 const NewsPage = () => {
     const location = useLocation();
@@ -15,15 +16,11 @@ const NewsPage = () => {
     }
 
     return (
-        <div style={{ height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'end' }}>
-            <button onClick={handleBack} style={{ width: '20%', height: '5%' }}>
-                Back
+        <div className="newsPage">
+            <button onClick={handleBack}>
+                ◀︎ Back
             </button>
-            <iframe
-                src={url}
-                style={{ width: '100%', height: '95%', border: 'none' }}
-                title="News Article"
-            />
+            <iframe src={url} title="News Article" />
         </div>
     );
 };
