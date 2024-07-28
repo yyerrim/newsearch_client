@@ -28,7 +28,7 @@ function App() {
   const [messages, setMessages] = useState([
     {
       role: "assistant",
-      content: `안녕하세요? \n저는 gpt4o-mini 기반 챗봇입니다.\n뉴스를 보다가 궁금한 점을 물어보세요!\n(2023년 10월까지의 데이터 기반 답변입니다)`,
+      content: `안녕하세요! \n저는 gpt4o-mini 기반 챗봇입니다.\n뉴스를 보다가 궁금한 점을 물어보세요!\n(2023년 10월까지의 데이터 기반 답변입니다)`,
     },
   ]);
 

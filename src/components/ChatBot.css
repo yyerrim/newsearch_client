@@ -12,35 +12,6 @@
   padding: 0; /* 패딩 제거 */
 }
 
-.chat-header {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-  background-color: #f0f0f0;
-}
-
-.profile-header-image {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-
-.header-info {
-  display: flex;
-  flex-direction: column;
-}
-
-.header-name {
-  font-weight: bold;
-}
-
-.header-status {
-  font-size: 0.8rem;
-  color: #888;
-}
-
 .messages {
   flex-grow: 1;
   overflow-y: auto;
