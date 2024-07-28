@@ -19,14 +19,16 @@ const VisitorCounter = () => {
 
   return (
     <table style={{ fontSize: "2vmin" }}>
-      <tr>
-        <td>Today</td>
-        <td>: {todayVisitor}</td>
-      </tr>
-      <tr>
-        <td>Total</td>
-        <td>: {totalVisitor}</td>
-      </tr>
+      <tbody>
+        <tr>
+          <td>Today</td>
+          <td>: {todayVisitor}</td>
+        </tr>
+        <tr>
+          <td>Total</td>
+          <td>: {totalVisitor}</td>
+        </tr>
+      </tbody>
     </table>
   );
 };
