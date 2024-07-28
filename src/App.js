@@ -9,7 +9,62 @@ import MainNews from "./components/MainNews";
 import SearchNews from "./components/SearchNews";
 import NewsPage from "./components/NewsPage";
 import VisitorCounter from "./components/VisitorCounter";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
+
+function Main({ category, setCategory, newsList, search, fetchNews, showChatBot, setShowChatBot, messages, setMessages }) {
+  const navigate = useNavigate();
+
+  const handleMainClick = () => {
+    setCategory("all");
+    navigate("/");
+  };
+
+  const handleButtonClick = () => {
+    setShowChatBot(!showChatBot);
+  };
+
+  return (
+    <div className="App">
+      <div className="header">
+        <span onClick={handleMainClick}>NewSearch</span>
+        <VisitorCounter />
+      </div>
+      <div className="container">
+        <div className="news">
+          <div className="menu">
+            <Categories onCategoryChange={setCategory} />
+            <Search onSearch={fetchNews} />
+          </div>
+          <div className="article">
+            <Routes>
+              <Route path="/" element={<MainNews category={category} />} />
+              <Route
+                path="/search"
+                element={<SearchNews newsList={newsList} search={search} />}
+              />
+              <Route path="/news" element={<NewsPage />} />
+            </Routes>
+          </div>
+        </div>
+        <div className="chat">
+          {showChatBot && (
+            <div className="chatbot-overlay">
+              <ChatBot messages={messages} setMessages={setMessages} />
+            </div>
+          )}
+          <div className="divbutton">
+            <button
+              className={`chatbot-button ${showChatBot ? "active" : ""}`}
+              onClick={handleButtonClick}
+            >
+              <img src={chatIcon} alt="Chat" className="chat-icon" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function App() {
   const [category, setCategory] = useState("all");
@@ -32,53 +87,21 @@ function App() {
     },
   ]);
 
-  const handleButtonClick = () => {
-    setShowChatBot(!showChatBot);
-  };
-
   return (
     <BrowserRouter>
-      <div className="App">
-        <div className="header">
-          <span>NewSearch</span>
-          <VisitorCounter />
-        </div>
-        <div className="container">
-          <div className="news">
-            <div className="menu">
-              <Categories onCategoryChange={setCategory} />
-              <Search onSearch={fetchNews} />
-            </div>
-            <div className="article">
-              <Routes>
-                <Route path="/" element={<MainNews category={category} />} />
-                <Route
-                  path="/search"
-                  element={<SearchNews newsList={newsList} search={search} />}
-                />
-                <Route path="/news" element={<NewsPage />} />
-              </Routes>
-            </div>
-          </div>
-          <div className="chat">
-            {showChatBot && (
-              <div className="chatbot-overlay">
-                <ChatBot messages={messages} setMessages={setMessages} />
-              </div>
-            )}
-            <div className="divbutton">
-              {/* 버튼에 active 클래스 조건부 적용 */}
-              <button
-                className={`chatbot-button ${showChatBot ? "active" : ""}`}
-                onClick={handleButtonClick}
-              >
-                <img src={chatIcon} alt="Chat" className="chat-icon" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Main
+        category={category}
+        setCategory={setCategory}
+        newsList={newsList}
+        search={search}
+        fetchNews={fetchNews}
+        showChatBot={showChatBot}
+        setShowChatBot={setShowChatBot}
+        messages={messages}
+        setMessages={setMessages}
+      />
     </BrowserRouter>
   );
 }
+
 export default App;
