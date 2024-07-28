@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import ChatBot from "./components/ChatBot";
 import chatIcon from "./assets/chatProfile.png";
+import { fetchDataFromBackend } from "./api";
 
 import Categories from "./components/Categories";
 import Search from "./components/Search";
@@ -11,7 +12,17 @@ import NewsPage from "./components/NewsPage";
 import VisitorCounter from "./components/VisitorCounter";
 import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 
-function Main({ category, setCategory, newsList, search, fetchNews, showChatBot, setShowChatBot, messages, setMessages }) {
+function Main({
+  category,
+  setCategory,
+  newsList,
+  search,
+  fetchNews,
+  showChatBot,
+  setShowChatBot,
+  messages,
+  setMessages,
+}) {
   const navigate = useNavigate();
 
   const handleMainClick = () => {
@@ -71,11 +82,17 @@ function App() {
   const [newsList, setNewsList] = useState([]);
   const [search, setSearch] = useState("");
 
+  // const fetchNews = async (search) => {
+  //   setSearch(search);
+  //   const url = `http://localhost:8080/naver/data?search=${search}`;
+  //   const res = await fetch(url);
+  //   const data = await res.json();
+  //   setNewsList(data.items);
+  // };
+
   const fetchNews = async (search) => {
     setSearch(search);
-    const url = `http://localhost:8080/naver/data?search=${search}`;
-    const res = await fetch(url);
-    const data = await res.json();
+    const data = await fetchDataFromBackend(`/naver/data?search=${search}`);
     setNewsList(data.items);
   };
 
