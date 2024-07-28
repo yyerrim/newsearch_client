@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Search.css";
+import Swal from "sweetalert2";
 
 const Search = ({ onSearch }) => {
   const [search, setSearch] = useState("");
@@ -8,7 +9,10 @@ const Search = ({ onSearch }) => {
 
   const handleSearch = () => {
     if (!search.trim()) {
-      alert("검색어를 입력하세요.");
+      Swal.fire({
+        icon: "warning",
+        title: "검색어를 입력하세요."
+      });
       setSearch("");
       return;
     }
@@ -17,7 +21,7 @@ const Search = ({ onSearch }) => {
     navigate(`/search`);
   };
 
-  const handleKeyDown = (e) => {
+  const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       handleSearch();
     }
@@ -31,7 +35,7 @@ const Search = ({ onSearch }) => {
         placeholder="news 키워드를 입력하세요."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        onKeyDown={handleKeyDown}
+        onKeyPress={handleKeyPress}
       />
       <button className="search_button" onClick={handleSearch}>🔍</button>
     </div>
