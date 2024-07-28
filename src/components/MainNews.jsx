@@ -17,6 +17,11 @@ const MainNews = ({ category }) => {
     getNews();
   }, [category]);
 
+  // <br> 태그 제거
+  const removeHtmlTags = (str) => {
+    return str.replace(/<br\s*\/?>/gi, '');
+  };
+
   return (
     <div style={{ width: "100%", height: "100%", overflowY: "scroll" }}>
       <div
@@ -27,7 +32,7 @@ const MainNews = ({ category }) => {
             <div key={i}>
               <p
                 style={{
-                  margin: "2.5vh 0 0 0",
+                  margin: "0",
                   fontSize: "2.2vmin",
                   fontWeight: "bold",
                 }}
@@ -36,18 +41,24 @@ const MainNews = ({ category }) => {
                   {v.title}
                 </a>
               </p>
-              <div className="content" style={{ display: "flex" }}>
-                {v.urlToImage && (
-                  <img
-                    src={v.urlToImage}
-                    style={{
-                      width: "160px",
-                      height: "100px",
-                    }}
-                  />
-                )}
-                {v.description && <p>{v.description}</p>}
-              </div>
+              {
+                v.urlToImage && v.description && (
+                  <div className="content" style={{ display: "flex", alignItems: "center", marginTop: "1.8vh" }}>
+                    {v.urlToImage && (
+                      <img
+                        src={v.urlToImage}
+                        style={{
+                          width: "15%",
+                          height: "20%",
+                          marginRight: "1vw"
+                        }}
+                      />
+                    )}
+                    {v.description && <p style={{ margin: "0", fontSize: "1.8vmin" }} dangerouslySetInnerHTML={{ __html: removeHtmlTags(v.description) }}></p>}
+                  </div>
+                )
+              }
+              <hr style={{ margin: '2.5vh 0 2.5vh 0' }} />
             </div>
           );
         })}
