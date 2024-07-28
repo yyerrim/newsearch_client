@@ -8,6 +8,11 @@
     font-size: 2vmin;
     border: transparent;
     background-color: transparent;
+    color: lightgray;
     margin-right: 1vw;
     cursor: pointer;
+}
+
+.menu_categories button.selected {
+    color: black;
 }

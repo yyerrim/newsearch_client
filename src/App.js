@@ -32,7 +32,7 @@ function Main({ category, setCategory, newsList, search, fetchNews, showChatBot,
       <div className="container">
         <div className="news">
           <div className="menu">
-            <Categories onCategoryChange={setCategory} />
+            <Categories category={category} onCategoryChange={setCategory} />
             <Search onSearch={fetchNews} />
           </div>
           <div className="article">
