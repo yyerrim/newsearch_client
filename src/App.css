@@ -10,18 +10,18 @@
   cursor: default;
 }
 
-.header > span {
+.header>span {
   font-size: 6vmin;
   font-weight: bold;
 }
 
 .container {
-  height: 88vh;
+  height: 87.5vh;
   display: flex;
 }
 
 .news {
-  width: 70vw;
+  width: 69.8vw;
   height: 100%;
 }
 
@@ -35,7 +35,7 @@
 
 .article {
   width: 100%;
-  height: 93%;
+  height: 90%;
 }
 
 .chat {
@@ -45,7 +45,7 @@
 
 .chatbot-overlay {
   width: 100%;
-  height: 89%;
+  height: 90%;
   border-radius: 20px; /* 모서리 둥글게 */
   background-color: white;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
@@ -54,7 +54,7 @@
 
 .divbutton {
   width: 100%;
-  height: 11%;
+  height: 10%;
   display: flex;
   justify-content: end;
 }
@@ -85,4 +85,10 @@
   height: 100%; /* 버튼 크기 맞추기 */
   max-width: 2vw;
   max-height: 2vw;
+}
+
+@media (max-width: 1350px) {
+  .menu {
+    flex-direction: column;
+  }
 }

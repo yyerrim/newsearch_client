@@ -8,7 +8,7 @@ const SearchNews = ({ newsList, search }) => {
   };
 
   return (
-    <div style={{ width: '98.5%', height: "100%", marginLeft: '1.5%' }}>
+    <div style={{ width: '98.5%', height: "92%", marginLeft: '1.5%' }}>
       <p style={{ margin: '2.3vh 0', fontSize: '3.3vmin', fontWeight: 'bold' }}>"{search}"(으)로 검색한 결과입니다.</p>
       <div style={{ width: '100%', height: "100%", overflowY: "scroll" }}>
         {newsList.map((v, i) => (

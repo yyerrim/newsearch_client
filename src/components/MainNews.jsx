@@ -23,7 +23,7 @@ const MainNews = ({ category }) => {
   };
 
   return (
-    <div style={{ width: "100%", height: "100%", overflowY: "scroll" }}>
+    <div style={{ width: "100%", height: "103%", overflowY: "scroll" }}>
       <div
         style={{ width: "97%", height: "98.5%", margin: "1.5% 1.5% 0 1.5%" }}
       >
