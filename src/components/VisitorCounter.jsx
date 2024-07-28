@@ -1,5 +1,3 @@
-// src/components/VisitorCounter.js
-
 import React, { useEffect, useState } from "react";
 
 const VisitorCounter = () => {
@@ -20,10 +18,16 @@ const VisitorCounter = () => {
   }, []);
 
   return (
-    <div>
-      <p>오늘의 방문자: {todayVisitor}</p>
-      <p>전체 방문자: {totalVisitor}</p>
-    </div>
+    <table style={{ fontSize: "2vmin" }}>
+      <tr>
+        <td>Today</td>
+        <td>: {todayVisitor}</td>
+      </tr>
+      <tr>
+        <td>Total</td>
+        <td>: {totalVisitor}</td>
+      </tr>
+    </table>
   );
 };
 
