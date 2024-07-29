@@ -6,17 +6,21 @@ const VisitorCounter = () => {
   const [totalVisitor, setTotalVisitor] = useState(0);
 
   useEffect(() => {
-    // fetch("http://localhost:8080/update-visitor-count", {
-    fetchDataFromBackend("/update-visitor-count", {
-      method: "POST",
-      credentials: "include", // 세션 쿠키를 포함한 요청
-    })
-      .then((response) => response.json())
-      .then((data) => {
+    const fetchVisitorData = async () => {
+      try {
+        const data = await fetchDataFromBackend("/update-visitor-count", {
+          method: "POST",
+          credentials: "include", // 세션 쿠키를 포함한 요청
+        });
+        console.log("Fetched data:", data); // 데이터 로그 추가
         setTodayVisitor(data.todayVisitor);
         setTotalVisitor(data.totalVisitor);
-      })
-      .catch((error) => console.error("Error fetching visitor count:", error));
+      } catch (error) {
+        console.error("Error fetching visitor count:", error);
+      }
+    };
+
+    fetchVisitorData();
   }, []);
 
   return (
