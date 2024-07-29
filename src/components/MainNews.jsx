@@ -19,7 +19,7 @@ const MainNews = ({ category }) => {
 
   // <br> 태그 제거
   const removeHtmlTags = (str) => {
-    return str.replace(/<br\s*\/?>/gi, '');
+    return str.replace(/<br\s*\/?>/gi, "");
   };
 
   return (
@@ -41,24 +41,36 @@ const MainNews = ({ category }) => {
                   {v.title}
                 </a>
               </p>
-              {
-                v.urlToImage && v.description && (
-                  <div className="content" style={{ display: "flex", alignItems: "center", marginTop: "1.8vh" }}>
-                    {v.urlToImage && (
-                      <img
-                        src={v.urlToImage}
-                        style={{
-                          width: "15%",
-                          height: "20%",
-                          marginRight: "1vw"
-                        }}
-                      />
-                    )}
-                    {v.description && <p style={{ margin: "0", fontSize: "1.8vmin" }} dangerouslySetInnerHTML={{ __html: removeHtmlTags(v.description) }}></p>}
-                  </div>
-                )
-              }
-              <hr style={{ margin: '2.5vh 0 2.5vh 0' }} />
+              {v.urlToImage && v.description && (
+                <div
+                  className="content"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    marginTop: "1.8vh",
+                  }}
+                >
+                  {v.urlToImage && (
+                    <img
+                      src={v.urlToImage}
+                      style={{
+                        width: "15%",
+                        height: "20%",
+                        marginRight: "1vw",
+                      }}
+                    />
+                  )}
+                  {v.description && (
+                    <p
+                      style={{ margin: "0", fontSize: "1.8vmin" }}
+                      dangerouslySetInnerHTML={{
+                        __html: removeHtmlTags(v.description),
+                      }}
+                    ></p>
+                  )}
+                </div>
+              )}
+              <hr style={{ margin: "2.5vh 0 2.5vh 0" }} />
             </div>
           );
         })}
