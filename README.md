@@ -1,4 +1,10 @@
+<div align="center">
+
 ![header](https://github.com/user-attachments/assets/798bc2cd-5264-43fc-be4e-b5821c3482cb)
+
+</div>
+
+
 <br />
 서버 레포지토리: https://github.com/yyerrim/newsearch_server
 
